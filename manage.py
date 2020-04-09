@@ -1,14 +1,14 @@
 from shutil import move,copytree
-from tkinter import filedialog
+from tkinter import filedialog,Tk
 from os import listdir,path,makedirs
-print("Select the path of folder where all mixed files are stored")
-source = filedialog.askdirectory()
+root = Tk()
+root.withdraw()
+source = filedialog.askdirectory(title='Please select directory where all the random files are stored')
 directories = listdir(source)
-# destination = filedialog.askdirectory()
 for files in directories:
    
     file,ext = path.splitext(files)
-    print(file,ext)
+    ext = ext[1:]
     if ext == ' ':
         continue
     if path.exists(source+'/'+ext):
